@@ -19,8 +19,10 @@ test['Hour'] = test['DateTime'].dt.hour
 
 xt = test.drop(['id','DateTime', 'meal'], axis = 1)
 
-model = RF(n_estimators=1000, n_jobs=-1, max_depth=None)
+model = RF(n_estimators=500, n_jobs=-1, max_depth=50)
 
 modelFit = model.fit(x, y)
 
 pred = modelFit.predict(xt)
+
+pred = pred.astype(float)
